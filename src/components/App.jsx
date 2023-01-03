@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Container } from './App.styled';
 import { FeedbackButtonsList } from './FeedbackButtonsList/FeedbackButtonsList';
 import StatisticsBox from './StatisticsBox/StatisticsBox';
 
@@ -21,12 +21,12 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <Container>
         <h1>Please leave feedback</h1>
         <FeedbackButtonsList />
         <h2>Statistics</h2>
         <StatisticsBox />
-      </>
+      </Container>
     );
   }
 }
