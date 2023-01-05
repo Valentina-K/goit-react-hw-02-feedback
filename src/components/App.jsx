@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from './App.styled';
-import { FeedbackButtonsList } from './FeedbackButtonsList/FeedbackButtonsList';
+import FeedbackButtonsList from './FeedbackButtonsList';
+import FeedbackButton from './FeedbackButton';
 import StatisticsBox from './StatisticsBox/StatisticsBox';
-
-// const colorPickerOptions = [
-//   { label: 'red', color: '#F44336' },
-//   { label: 'green', color: '#4CAF50' },
-//   { label: 'blue', color: '#2196F3' },
-//   { label: 'grey', color: '#607D8B' },
-//   { label: 'pink', color: '#E91E63' },
-//   { label: 'indigo', color: '#3F51B5' },
-// ];
 
 class App extends Component {
   state = {
@@ -19,11 +11,23 @@ class App extends Component {
     bad: 0,
   };
 
+  updateFeedback = name => {
+    this.setState(prevState => {
+      return {
+        [name]: prevState[name] + 1,
+      };
+    });
+  };
+
   render() {
     return (
       <Container>
         <h1>Please leave feedback</h1>
-        <FeedbackButtonsList />
+        <FeedbackButtonsList>
+          <FeedbackButton text="Good" addFeedback={this.updateFeedback} />
+          <FeedbackButton text="Neutral" addFeedback={this.updateFeedback} />
+          <FeedbackButton text="Bad" addFeedback={this.updateFeedback} />
+        </FeedbackButtonsList>
         <h2>Statistics</h2>
         <StatisticsBox />
       </Container>

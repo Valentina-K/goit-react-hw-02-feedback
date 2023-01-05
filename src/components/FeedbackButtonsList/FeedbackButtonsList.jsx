@@ -1,12 +1,8 @@
-import { FeedbackButton } from 'components/FeedbackButton/FeedbackButton';
+import React from 'react';
 import { ButtonList } from './FeedbackButtonsList.styled';
 
-export const FeedbackButtonsList = () => {
-  return (
-    <ButtonList>
-      <FeedbackButton text="Good" />
-      <FeedbackButton text="Neutral" />
-      <FeedbackButton text="Bad" />
-    </ButtonList>
-  );
-};
+const FeedbackButtonsList = ({ children }) => (
+  <ButtonList>{children}</ButtonList>
+);
+
+export default FeedbackButtonsList;

@@ -1,5 +1,11 @@
 import { Button } from './FeedbackButton.styled';
 
-export const FeedbackButton = ({ text }) => {
-  return <Button name={text.toLowerCase()}>{text}</Button>;
+const FeedbackButton = ({ text, addFeedback }) => {
+  return (
+    <Button name={text.toLowerCase()} onClick={e => addFeedback(e.target.name)}>
+      {text}
+    </Button>
+  );
 };
+
+export default FeedbackButton;
