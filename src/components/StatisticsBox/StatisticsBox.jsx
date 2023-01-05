@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class StatisticsBox extends Component {
-  render() {
-    return <div></div>;
-  }
-}
+const StatisticsBox = ({ children }) => <div>{children}</div>;
+
+export default StatisticsBox;
