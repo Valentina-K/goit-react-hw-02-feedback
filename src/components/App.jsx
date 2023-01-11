@@ -11,9 +11,6 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  total = 0;
-  positive = 0;
-  options = ['Good', 'Neutral', 'Bad'];
 
   updateFeedback = name => {
     this.setState(prevState => {
@@ -21,22 +18,20 @@ class App extends Component {
         [name]: prevState[name] + 1,
       };
     });
-    this.total += 1;
-    this.positive =
-      name === 'good' || name === 'neutral' ? this.positive + 1 : this.positive;
   };
 
-  countTotalFeedback = () => this.total;
+  countTotalFeedback = () =>
+    this.state.good + this.state.neutral + this.state.bad;
 
   countPositiveFeedbackPercentage = () =>
-    `${Math.round((this.positive / this.total) * 100)}%`;
+    `${Math.round((this.state.good / this.countTotalFeedback()) * 100)}%`;
 
   render() {
     return (
       <Container>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={this.options}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.updateFeedback}
           />
         </Section>

@@ -3,13 +3,17 @@ import { Button } from './FeedbackOptions.styled';
 const FeedbackOptions = ({ options, onLeaveFeedback }) =>
   options.map(option => (
     <Button
-      name={option.toLowerCase()}
+      name={option}
       key={option}
       onClick={e => onLeaveFeedback(e.target.name)}
     >
-      {option}
+      {getCapitalize(option)}
     </Button>
   ));
+
+function getCapitalize(text) {
+  return text.charAt().toUpperCase().concat(text.slice(1));
+}
 
 export default FeedbackOptions;
 
