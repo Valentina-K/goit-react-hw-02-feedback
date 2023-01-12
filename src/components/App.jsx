@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from './App.styled';
 import Section from './Section';
 import Notification from './Notification';
-import Statistics from './Statistics/Statistics';
+import Statistics from './Statistics';
 import FeedbackOptions from './FeedbackOptions';
 
 class App extends Component {

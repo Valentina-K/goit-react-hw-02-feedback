@@ -12,7 +12,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) =>
   ));
 
 function getCapitalize(text) {
-  return text.charAt().toUpperCase().concat(text.slice(1));
+  return text.charAt(0).toUpperCase().concat(text.slice(1));
 }
 
 export default FeedbackOptions;
